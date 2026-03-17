@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WatchParty</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+
+<div id="home">
+<h1>🎬 WatchParty</h1>
+<button onclick="createRoom()">Créer une salle</button>
+<input id="roomInput" placeholder="ID de salle">
+<button onclick="joinRoom()">Rejoindre</button>
+</div>
+
+<div id="room" class="hidden">
+<header>
+<span id="roomId"></span>
+<button onclick="copyLink()">Partager</button>
+</header>
+
+<div class="main">
+<video id="video" controls></video>
+
+<div class="sidebar">
+<h3>Participants</h3>
+<ul id="participants"></ul>
+
+<h3>Chat</h3>
+<div id="chat"></div>
+<input id="message" placeholder="message">
+<button onclick="sendMessage()">Envoyer</button>
+
+<button onclick="toggleMic()">🎤</button>
+</div>
+</div>
+
+<div class="controls">
+<input type="file" id="fileInput">
+<input id="videoUrl" placeholder="Lien vidéo">
+<button onclick="loadVideo()">Charger</button>
+<button onclick="openTV()">TV</button>
+</div>
+
+<div id="tvList" class="hidden"></div>
+</div>
+
+<script src="app.js"></script>
+<script src="webrtc.js"></script>
+<script src="tv.js"></script>
+
+</body>
+</html>
